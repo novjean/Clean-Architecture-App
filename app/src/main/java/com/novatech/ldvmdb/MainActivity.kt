@@ -28,12 +28,16 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // this is used to remove the observer from below
+        // as the change in value and updation of value is being handled in the layout file
+        binding.lifecycleOwner = this
+
         // binding view model, so in the layout with the data tag,
         // the onclick of the button will trigger the lambda function to trigger the update counter
         binding.myViewModel = viewModel
 
-        viewModel.counter.observe(this, Observer {
-            binding.textView.text = it.toString()
-        })
+//        viewModel.counter.observe(this, Observer {
+//            binding.textView.text = it.toString()
+//        })
     }
 }
